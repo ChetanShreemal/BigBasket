@@ -1,0 +1,62 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h3 text-success">Create Product</p>
+            <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam quod molestias exercitationem dolores, vitae ipsum architecto optio sint aliquid ullam sapiente saepe alias earum magni esse rem libero omnis a?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div *ngIf="emptyFields" class="alert alert-danger alert-dismissible">
+                <button class="close" data-dismiss="alert">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+                <span class="font-weight-bold">
+                    Please fill in the fields
+                </span>
+            </div>
+         <div class="card">
+            <div class="card-header bg-success text-white">create product</div>
+            <div class="card-body bg-light">
+                <form (submit)="submitCreateProduct()">
+                    <div class="form-group">
+                        <input name= "name"
+                        [(ngModel)]= "product.name"
+                         type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="custom-file">
+                        <input name= "image"
+                        (change)="selectProductImage($event)"
+                         type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <div *ngIf="imageFileName">
+                            <small>{{imageFileName.name}}</small>
+                        </div>
+                      </div>
+
+                    <div class="form-group mt-3">
+                        <input name= "price"
+                        [(ngModel)]= "product.price"
+                         type="number" class="form-control" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <input name= "qty"
+                        [(ngModel)]= "product.qty"
+                        type="number" class="form-control" placeholder="Qty">
+                    </div>
+                    <div class="form-group">
+                        <textarea name= "info"
+                        [(ngModel)]= "product.info"
+                         rows="4" type="text" class="form-control" placeholder="Information"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class=" btn btn-success btn-sm" value="Create">
+                    </div>
+
+                </form>
+            </div>
+         </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 200px;"></div>
+</div>
